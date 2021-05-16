@@ -12,14 +12,19 @@ const App = () => {
     console.log('Ошибка'); 
     return null
  }
- 
+
+
 
   return (
     <div className="App">
       <div>APP</div>
       <div>
-         {JSON.stringify(data)}
-         {console.log(data)}
+        
+      {JSON.stringify(data)}
+         {/* <img
+         src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}
+            alt="MovieCover"
+          /> */}
        </div>
     </div>
   );
