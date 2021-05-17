@@ -1,0 +1,59 @@
+.nav {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  background-color: rgba(0, 0, 0, 0.246);
+  .logo {
+    display: flex;
+    justify-content: center;
+    &__img {
+      width: 75px;
+      height: 100%;
+    }
+  }
+
+  .auth-block {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 1rem;
+    & div {
+      min-width: 8rem;
+      max-width: 10rem;
+      text-align: center;
+      &:hover {
+        animation: shake 1.2s ease-in-out;
+      }
+    }
+    &__signin,
+    &__signup {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      &:hover {
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 2.5px 1px 1px;
+      }
+    }
+  }
+}
+
+@keyframes shake {
+  0%,
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10%,
+  30% {
+    transform: rotate(-10deg);
+  }
+  20%,
+  40% {
+    transform: rotate(10deg);
+  }
+}
