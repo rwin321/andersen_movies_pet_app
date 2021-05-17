@@ -1,11 +1,9 @@
 import Navbar from "./components/Navbar/Navbar";
 import "./styles/main.scss";
 import { Switch, Route } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
 import Content from "./components/Content/Content";
 
 const App = () => {
-  const dispatch = useDispatch();
   return (
     <div className="app_wrapper">
       <Navbar />
@@ -13,6 +11,7 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <div>search</div>
+            <div>content</div>
             <Content />
           </Route>
           <Route path="/signin">
