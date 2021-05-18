@@ -1,38 +1,106 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Signup = () => { 
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleInputLogin=(e)=>{
+        setLogin(e.target.value);
+    }
+
+    const handleInputPassword=(e)=>{
+        setPassword(e.target.value);
+    }
+
+    const hangleSubmit=(e)=>{
+        e.preventDefault();
+        const data = {
+            login,
+            password
+        }
+        if (data.login && data.password) {
+            localStorage.setItem('data-login', data.login)
+            localStorage.setItem('data-password', data.password)
+        } else {
+            alert('Error data')
+        }
+       
+    }
+
     return ( 
         
         <div className="row">
-            <h1 style={{textAlign:'center'}}> Форма регистрации </h1>
+            <h1 style={{textAlign:'center'}}> Регистрация </h1>
         <form className="col s12">
             <div className="row">
             <div className="input-field col s6">
-                <input placeholder="Placeholder" id="first_name" type="text" className="validate"/>
-                <label for="first_name">First Name</label>
-            </div>
-            <div className="input-field col s6">
-                <input id="last_name" type="text" className="validate"/>
-                <label for="last_name">Last Name</label>
+                <input  id="first_name" type="text" className="validate" value={login} onChange={(e)=>handleInputLogin(e)}/>
+                <label htmlFor="first_name">First Name</label>
             </div>
             </div>
             <div className="row">
             <div className="input-field col s12">
-                <input id="password" type="password" className="validate"/>
-                <label for="password">Password</label>
+                    <input id="password" type="password" className="validate" value={password} onChange={(e)=>handleInputPassword(e)} />
+                <label htmlFor="password">Password</label>
             </div>
             </div>
-            <div className="row">
-            <div className="input-field col s12">
-                <input id="email" type="email" className="validate"/>
-                <label for="email">Email</label>
-            </div>
-            </div>
-            <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+            <button className="btn waves-effect waves-light" type="submit" name="action" onClick={(e)=>hangleSubmit(e)}>Submit
   </button>
+        {login}
+        {password}
         </form>
         </div>
     )
 }
 
 export default Signup;
+
+
+
+
+
+
+
+// import React from 'react'
+
+// const Signup = () => { 
+  
+  
+  
+  
+  
+//     return ( 
+        
+//         <div className="row">
+//             <h1 style={{textAlign:'center'}}> Форма регистрации </h1>
+//         <form className="col s12">
+//             <div className="row">
+//             <div className="input-field col s6">
+//                 <input placeholder="Placeholder" id="first_name" type="text" className="validate"/>
+//                 <label htmlFor="first_name">First Name</label>
+//             </div>
+//             <div className="input-field col s6">
+//                 <input id="last_name" type="text" className="validate"/>
+//                 <label htmlFor="last_name">Last Name</label>
+//             </div>
+//             </div>
+//             <div className="row">
+//             <div className="input-field col s12">
+//                 <input id="password" type="password" className="validate"/>
+//                 <label htmlFor="password">Password</label>
+//             </div>
+//             </div>
+//             <div className="row">
+//             <div className="input-field col s12">
+//                 <input id="email" type="email" className="validate"/>
+//                 <label htmlFor="email">Email</label>
+//             </div>
+//             </div>
+//             <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+//   </button>
+//         </form>
+//         </div>
+//     )
+// }
+
+// export default Signup;

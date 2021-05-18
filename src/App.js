@@ -4,6 +4,7 @@ import axios from 'axios';
 import ContentView from "./components/ContentView";
 import './styles/ContentView.css';
 import Signin from "./components/Signin";
+import Signup from "./components/Signup";
 
 
 const App = () => {
@@ -21,6 +22,13 @@ const App = () => {
   }
 
   useEffect(() => {
+    const log = localStorage.getItem('data-login')
+    const pass = localStorage.getItem('data-password')
+    if (log && pass) {
+      return null
+    } else {
+      alert('redirect')
+    }
     fetchRequest()
   }, [])
 
@@ -28,6 +36,8 @@ const App = () => {
   return (
     <>
       <Signin/>
+      <hr />
+      <Signup/>
       <div className="App">
             <div className='trending'>
               {
