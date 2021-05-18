@@ -1,5 +1,5 @@
-### Movies app
+# Movies app
 
-## commplex pet project: "movies app".
+## prod branch
 
-# Vladimir #. & Ervin A.
+### Vladimir #. & Ervin A.
