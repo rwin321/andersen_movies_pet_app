@@ -22,7 +22,9 @@
       min-width: 8rem;
       max-width: 10rem;
       text-align: center;
-      &:hover {
+    }
+    & div:hover {
+      & > span > svg {
         animation: shake 1.2s ease-in-out;
       }
     }

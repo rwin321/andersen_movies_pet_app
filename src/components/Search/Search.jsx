@@ -1,10 +1,19 @@
 import React from "react";
 
-const Search = () => {
+const Search = ({ searchVal, setSearchVal }) => {
   return (
-    <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-      <div>search some movies!</div>
-      <input type="text" placeholder="type some text.." />
+    <div className="search">
+      <h2 className="search__title">search some movies!</h2>
+      <input
+        className="search__input"
+        type="text"
+        placeholder="type some text.."
+        value={searchVal}
+        onChange={(e) => {
+          setSearchVal(e.target.value);
+          console.log(searchVal);
+        }}
+      />
     </div>
   );
 };
