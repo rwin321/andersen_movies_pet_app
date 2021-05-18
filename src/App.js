@@ -3,9 +3,12 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import ContentView from "./components/ContentView";
 import './styles/ContentView.css';
+import Signin from "./components/Signin";
+
 
 const App = () => {
   const [content, setContent] = useState([]);
+
   // const { homepage, id, imdb_id, original_language, poster_path } = state
   // https://api.themoviedb.org/3/trending/all/week?api_key=cd524ad267ee1be15d8602d5d5bdecad
   // https://api.themoviedb.org/3/movie/550?api_key=cd524ad267ee1be15d8602d5d5bdecad?
@@ -23,22 +26,25 @@ const App = () => {
 
   
   return (
-    <div className="App">
-      <div className='trending'>
-        {
-          content && content.map((c)=> (
-            <ContentView
-            key={c.id}
-            id={c.id}
-            poster={c.poster_path}
-            title={c.title || c.name}
-            media_type={c.media_type}
-            date={c.first_air_date || c.release_date}
-            />
-          ))
-        }
-      </div>
-    </div>
+    <>
+      <Signin/>
+      <div className="App">
+            <div className='trending'>
+              {
+                content && content.map((c)=> (
+                  <ContentView
+                  key={c.id}
+                  id={c.id}
+                  poster={c.poster_path}
+                  title={c.title || c.name}
+                  media_type={c.media_type}
+                  date={c.first_air_date || c.release_date}
+                  />
+                ))
+              }
+            </div>
+          </div>
+    </>
   )
 }
 
