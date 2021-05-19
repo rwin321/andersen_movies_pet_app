@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { Redirect } from 'react-router';
 import '../styles/ContentView.css';
+import { connect, useDispatch, useSelector } from "react-redux";
+import { setAuth } from "../Store/Actions/mainAction";
 
 const Signin = () => { 
+    
+    const dispatch = useDispatch();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [db, setDb] = useState({});
+    const [submit,setSubmit] = useState(false);
+
 
     useEffect(() => {
         const login = localStorage.getItem('data-login')
@@ -28,7 +35,8 @@ const Signin = () => {
             password
         } 
         if (data.login === db.login && data.password===db.password) {
-            alert('redirect home')
+            setSubmit(true)
+            dispatch(setAuth(true))
         } else {
             alert('Неверный логин или пароль')
         }
@@ -49,8 +57,8 @@ const Signin = () => {
                 </div>
                 </div>
                 <button className="btn waves-effect waves-light" type="submit" name="action" onClick={(e)=>hangleSubmit(e)}>Войти
-    </button>
-
+                </button>
+                {submit && <Redirect to = "/" />}
             </form>
         </div>
     )
