@@ -29,7 +29,7 @@ const Signup = () => {
 
     return ( 
         
-        <div className="row">
+        <div className="row signin">
             <h1 style={{textAlign:'center'}}> Регистрация </h1>
         <form className="col s12">
             <div className="row">
@@ -37,17 +37,14 @@ const Signup = () => {
                 <input  id="first_name" type="text" className="validate" value={login} onChange={(e)=>handleInputLogin(e)}/>
                 <label htmlFor="first_name">First Name</label>
             </div>
-            </div>
-            <div className="row">
-            <div className="input-field col s12">
+            <div className="input-field col s6">
                     <input id="password" type="password" className="validate" value={password} onChange={(e)=>handleInputPassword(e)} />
                 <label htmlFor="password">Password</label>
             </div>
             </div>
-            <button className="btn waves-effect waves-light" type="submit" name="action" onClick={(e)=>hangleSubmit(e)}>Submit
+            <button className="btn waves-effect waves-light" type="submit" name="action" onClick={(e)=>hangleSubmit(e)}>Зарегистрироваться
   </button>
-        {login}
-        {password}
+
         </form>
         </div>
     )

@@ -10,7 +10,7 @@ const ContentView = ({
     return <div className='media'>
        <img 
             className='poster'
-          src={`https://image.tmdb.org/t/p/w300/${poster}`}
+          src={`https://image.tmdb.org/t/p/w500/${poster}`}
           alt="MovieCover"
         />
         <b className='title'>{title}</b>

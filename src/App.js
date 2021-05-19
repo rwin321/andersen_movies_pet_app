@@ -5,39 +5,41 @@ import ContentView from "./components/ContentView";
 import './styles/ContentView.css';
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
+import { Route, NavLink } from "react-router-dom";
+import Navbar from "./NavBar/NavBar";
+
 
 
 const App = () => {
   const [content, setContent] = useState([]);
-
-  // const { homepage, id, imdb_id, original_language, poster_path } = state
-  // https://api.themoviedb.org/3/trending/all/week?api_key=cd524ad267ee1be15d8602d5d5bdecad
-  // https://api.themoviedb.org/3/movie/550?api_key=cd524ad267ee1be15d8602d5d5bdecad?
   const fetchRequest = async () => {
     const { data } = await axios.get('https://api.themoviedb.org/3/trending/all/week?api_key=cd524ad267ee1be15d8602d5d5bdecad')
-    // let response = await fetch('https://api.themoviedb.org/3/trending/all/week?api_key=cd524ad267ee1be15d8602d5d5bdecad');
-    // let result = await response.json()
-    // console.log(result);
     setContent(data.results)
   }
 
   useEffect(() => {
-    const log = localStorage.getItem('data-login')
-    const pass = localStorage.getItem('data-password')
-    if (log && pass) {
-      return null
-    } else {
-      alert('redirect')
-    }
+    // const log = localStorage.getItem('data-login')
+    // const pass = localStorage.getItem('data-password')
+    // if (log && pass) {
+    //   return null
+    // } else {
+    //   alert('redirect')
+    // }
     fetchRequest()
   }, [])
 
   
   return (
     <>
-      <Signin/>
+      <Navbar/>
+      <Route path="/signin" exact component={Signin} />
+      <Route path="/signup" exact component={Signup} />
+      {/* <Route path="/favorite" exact component={Favorite} /> */}
+      {/* <Route path="/history" exact component={History} /> */}
+      {/* <Route path="/logout" exact component={Logout} /> */}
+      {/* <Signin/>
       <hr />
-      <Signup/>
+      <Signup/> */}
       <div className="App">
             <div className='trending'>
               {

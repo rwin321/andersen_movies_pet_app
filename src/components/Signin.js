@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import '../styles/ContentView.css';
 
 const Signin = () => { 
     const [login, setLogin] = useState('');
@@ -34,26 +35,23 @@ const Signin = () => {
     }
 
     return ( 
-        <div className="row">
-            <h1 style={{textAlign:'center'}}> Форма авторизации </h1>
-        <form className="col s12">
-            <div className="row">
-            <div className="input-field col s6">
-                <input  id="first_name" type="text" className="validate" value={login} onChange={(e)=>handleInputLogin(e)}/>
-                <label htmlFor="first_name">First Name</label>
-            </div>
-            </div>
-            <div className="row">
-            <div className="input-field col s12">
-                    <input id="password" type="password" className="validate" value={password} onChange={(e)=>handleInputPassword(e)} />
-                <label htmlFor="password">Password</label>
-            </div>
-            </div>
-            <button className="btn waves-effect waves-light" type="submit" name="action" onClick={(e)=>hangleSubmit(e)}>Submit
-  </button>
-        {login}
-        {password}
-        </form>
+        <div className="row signin">
+            <h1 style={{textAlign:'center'}}> Авторизация </h1>
+            <form className="col s12">
+                <div className="row">
+                <div className="input-field col s6">
+                    <input  id="first_name" type="text" className="validate" value={login} onChange={(e)=>handleInputLogin(e)}/>
+                    <label htmlFor="first_name">Логин</label>
+                </div>
+                <div className="input-field col s6">
+                        <input id="password" type="password" className="validate" value={password} onChange={(e)=>handleInputPassword(e)} />
+                    <label htmlFor="password">Пароль</label>
+                </div>
+                </div>
+                <button className="btn waves-effect waves-light" type="submit" name="action" onClick={(e)=>hangleSubmit(e)}>Войти
+    </button>
+
+            </form>
         </div>
     )
 }
