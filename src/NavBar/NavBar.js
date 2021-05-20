@@ -24,7 +24,7 @@ import { Route, NavLink } from "react-router-dom";
                     <NavLink to="/signin">Войти</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/signup">Зарегистрироваться</NavLink>
+                    <NavLink to="/signup">Зарегистрироваться </NavLink>
                   </li>
                 </>
               )
