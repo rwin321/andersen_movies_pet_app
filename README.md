@@ -1,5 +1,5 @@
 # Movies app
 
-## prod branch
+## develop branch
 
 ### Vladimir #. & Ervin A.
