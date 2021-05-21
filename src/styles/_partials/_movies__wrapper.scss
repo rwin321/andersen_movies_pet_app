@@ -1,0 +1,47 @@
+.movies__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  justify-items: center;
+  margin: 0 auto;
+  .card {
+    &__body {
+      width: 18rem;
+      padding: 0.7rem;
+      background-color: rgba(0, 0, 0, 0.055);
+      &:hover {
+        background-color: lightsalmon;
+        transition: 0.3s ease;
+        cursor: pointer;
+      }
+    }
+    &__title {
+      padding: 0.5rem;
+      font-size: 1.4rem;
+      color: lightcoral;
+    }
+    &__text {
+      padding: 0.5rem;
+    }
+  }
+  .poster {
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  .title {
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+    padding: 8px 0;
+  }
+
+  .DownTitle {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3px;
+    padding: 0 2px;
+    padding-bottom: 3px;
+  }
+}

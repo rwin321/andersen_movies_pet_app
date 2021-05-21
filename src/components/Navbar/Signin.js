@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router";
-import "../styles/ContentView.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setAuth } from "../redux/slices/authSlice";
+// import "../styles/ContentView.css";
+import { useDispatch } from "react-redux";
+import { setAuth } from "../../redux/slices/authSlice";
 
 const Signin = () => {
   const dispatch = useDispatch();

@@ -12,7 +12,7 @@ export const authSlice = createSlice({
   },
   reducers: {
     setAuth: (state, { payload }) => {
-      state.auth.isAuth = payload;
+      state.isAuth = payload;
     },
   },
 });

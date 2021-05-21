@@ -1,0 +1,16 @@
+.app__wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 75px 1fr;
+}
+
+.content__wrapper {
+  position: relative;
+  width: 80%;
+  min-height: calc(100vh - 75px);
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}

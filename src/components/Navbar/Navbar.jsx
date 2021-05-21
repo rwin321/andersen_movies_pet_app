@@ -1,19 +1,19 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Route, NavLink } from "react-router-dom";
+import logo from "../../assets/imgs/logo.png";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const auth = useSelector((state) => state.auth.isAuth);
 
-  const styles = {
-    navbar: {
-      marginBottom: 20,
-    },
-  };
   return (
-    <nav style={styles.navbar}>
-      <ul className="">
+    <nav className="nav">
+      <div className="nav__logo">
+        <NavLink to="/">
+          <img src={logo} alt="" className="nav__logo-img" />
+        </NavLink>
+      </div>
+      <ul className="nav__menu">
         <div style={{ display: "flex", justifyContent: "space-around" }}>
           <li>
             <NavLink to="/">Главная</NavLink>
