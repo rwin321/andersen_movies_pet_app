@@ -7,7 +7,7 @@ import Signup from "./components/Signup";
 import { Route, Redirect } from "react-router-dom";
 import Navbar from "./NavBar/NavBar";
 import Logout from "./components/Logout";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAuth } from "./Store/Actions/mainAction";
 import ContentView from "./components/ContentView";
 import Favorite from "./components/Favorite";
@@ -17,8 +17,9 @@ const App = () => {
   const loging = localStorage.getItem("data-login");
   const password = localStorage.getItem("data-password");
   const dispatch = useDispatch();
-  const store = useSelector((state) => state.mainReducer);
-  const { userList, isAuth } = store;
+  const isAuth = useSelector((state) => state.auth.isAuth);
+  const userList = useSelector((state) => state.auth.userList);
+  // const { userList, isAuth } = store;
 
   const [content, setContent] = useState([]);
 
@@ -41,14 +42,6 @@ const App = () => {
 
     fetchRequest();
   }, []);
-
-  // const localFunc = () =>{
-  //   if(log && pas){
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
 
   return (
     <>
