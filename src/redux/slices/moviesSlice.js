@@ -7,7 +7,7 @@ export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
 });
 
 export const moviesSlice = createSlice({
-  name: "posts",
+  name: "movies",
   initialState: {
     list: [],
     loading: null,

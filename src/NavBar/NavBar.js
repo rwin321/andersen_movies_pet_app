@@ -18,7 +18,7 @@ const Navbar = () => {
           <li>
             <NavLink to="/">Главная</NavLink>
           </li>
-          {auth && (
+          {!auth && (
             <>
               <li>
                 <NavLink to="/signin">Войти</NavLink>

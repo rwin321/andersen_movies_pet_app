@@ -1,10 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authSlice from "./slices/authSlice";
-import moviesSlice from "./slices/moviesSlice";
+import rootReducer from "./rootRedcer";
 
 export default configureStore({
-  reducer: {
-    movies: moviesSlice,
-    auth: authSlice,
-  },
+  reducer: rootReducer,
 });

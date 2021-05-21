@@ -12,6 +12,7 @@ import { setAuth } from "./Store/Actions/mainAction";
 import ContentView from "./components/ContentView";
 import Favorite from "./components/Favorite";
 import { getMovies } from "./api/api";
+import { fetchMovies } from "./redux/slices/moviesSlice";
 
 const App = () => {
   const loging = localStorage.getItem("data-login");
@@ -19,6 +20,7 @@ const App = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.auth.isAuth);
   const userList = useSelector((state) => state.auth.userList);
+  const moviesList = useSelector((state) => state.movies.list);
   // const { userList, isAuth } = store;
 
   const [content, setContent] = useState([]);
@@ -26,12 +28,8 @@ const App = () => {
   const [log, setLog] = useState();
   const [pas, setPass] = useState();
 
-  const fetchRequest = async () => {
-    const data = await getMovies();
-    setContent(data.results);
-  };
-
   useEffect(() => {
+    dispatch(fetchMovies());
     const loging = localStorage.getItem("data-login");
     const password = localStorage.getItem("data-password");
     if (loging && password) {
@@ -40,7 +38,7 @@ const App = () => {
     // setLog(loging)
     // setPass(password)
 
-    fetchRequest();
+    // fetchRequest();
   }, []);
 
   return (
@@ -60,8 +58,8 @@ const App = () => {
 
         {loging && password ? null : <Redirect to="/signup" />}
         <div className="trending">
-          {content &&
-            content.map((c) => (
+          {moviesList &&
+            moviesList.map((c) => (
               <ContentView
                 key={c.id}
                 id={c.id}
