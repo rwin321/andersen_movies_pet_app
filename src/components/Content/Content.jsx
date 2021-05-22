@@ -1,11 +1,11 @@
 import React, { useState, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import Preloader from "../../assets/Preloader";
-import MoviesContainer from "../Movies/MoviesContainer";
-import Logout from "../Navbar/Logout";
-import Signin from "../Navbar/Signin";
-import Signup from "../Navbar/Signup";
-import Search from "../Search/Search";
+import MoviesContainer from "./Movies/MoviesContainer";
+import Logout from "./Logout";
+import Signin from "./Signin";
+import Signup from "./Signup";
+import Search from "./Search";
 
 const Content = () => {
   // state with value which client searching

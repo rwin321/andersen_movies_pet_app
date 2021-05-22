@@ -12,7 +12,11 @@ export const moviesSlice = createSlice({
     list: [],
     loading: null,
   },
-  reducers: {},
+  reducers: {
+    setFilterArray: (state, { payload }) => {
+      state.filtered = payload;
+    },
+  },
   extraReducers: {
     [fetchMovies.pending]: (state) => {
       state.loading = true;

@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
-const Movie = ({ poster, title, date, media_type }) => {
+const Movie = ({ poster, title, date, media_type, setIsModal }) => {
   return (
     <Card className="card">
       <Card.Body className="card__body">
@@ -16,6 +17,7 @@ const Movie = ({ poster, title, date, media_type }) => {
         <Card.Subtitle className="DownTitle">
           {media_type === "tv" ? "TV Series" : "Movie"}
         </Card.Subtitle>
+        <Button>description</Button>
       </Card.Body>
     </Card>
   );
