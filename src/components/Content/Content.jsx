@@ -6,6 +6,7 @@ import Logout from "./Logout";
 import Signin from "./Signin";
 import Signup from "./Signup";
 import Search from "./Search";
+import Favorite from "./Favorite";
 
 const Content = () => {
   // state with value which client searching
@@ -29,7 +30,9 @@ const Content = () => {
             <Logout />
           </Route>
           <Route path="/history">history</Route>
-          <Route path="/favorite">favorites</Route>
+          <Route path="/favorite">
+            <Favorite />
+          </Route>
         </Switch>
       </Suspense>
     </div>

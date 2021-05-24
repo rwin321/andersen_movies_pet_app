@@ -1,9 +1,9 @@
+import { combineReducers } from "redux";
+
 import authSlice from "./slices/authSlice";
 import moviesSlice from "./slices/moviesSlice";
 
-const rootReducer = {
+export default combineReducers({
   movies: moviesSlice,
   auth: authSlice,
-};
-
-export default rootReducer;
+});
