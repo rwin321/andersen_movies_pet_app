@@ -14,6 +14,8 @@ export const searchSelector = createSelector(
           .includes(searchVal.toLowerCase().trim())
       ) {
         return movie;
+      } else {
+        return false;
       }
     });
   }

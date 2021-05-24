@@ -3,6 +3,7 @@ import { Redirect } from "react-router";
 // import "../styles/ContentView.css";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../redux/slices/authSlice";
+import Alert from "react-bootstrap/Alert";
 
 const Signin = () => {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const [db, setDb] = useState({});
   const [submit, setSubmit] = useState(false);
+  const [alert, setAlert] = useState(false);
 
   useEffect(() => {
     const login = localStorage.getItem("data-login");
@@ -35,7 +37,7 @@ const Signin = () => {
       setSubmit(true);
       dispatch(setAuth(true));
     } else {
-      alert("Неверный логин или пароль");
+      setAlert(true);
     }
   };
 
@@ -74,6 +76,7 @@ const Signin = () => {
           Войти
         </button>
         {submit && <Redirect to="/" />}
+        {alert && <Alert className="alert">Неверный логин или пароль</Alert>}
       </form>
     </div>
   );

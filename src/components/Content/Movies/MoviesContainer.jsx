@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import Preloader from "../../../assets/Preloader";
 import Movies from "./Movies";
 import { useSelector, useDispatch } from "react-redux";
