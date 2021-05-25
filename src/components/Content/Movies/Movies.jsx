@@ -1,17 +1,10 @@
 import React from "react";
-import Movie from "./Movie";
+import MovieCard from "../../../assets/MovieCardControls/MovieCard";
 
-const Movies = ({ searched, clickHandler, type }) => {
+const Movies = ({ data, type }) => {
   return (
-    searched.length > 0 &&
-    searched.map((movie) => (
-      <Movie
-        key={movie.id}
-        movie={movie}
-        clickHandler={clickHandler}
-        type={type}
-      />
-    ))
+    data &&
+    data.map((movie) => <MovieCard key={movie.id} movie={movie} type={type} />)
   );
 };
 

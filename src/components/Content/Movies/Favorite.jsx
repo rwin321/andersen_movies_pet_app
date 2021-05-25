@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Movie from "./Movies/Movie";
+import MovieCard from "../../../assets/MovieCardControls/MovieCard";
 
 const Favorite = () => {
   const favorite = useSelector((state) => state.movies.favorite);
@@ -17,7 +17,7 @@ const Favorite = () => {
       <main className="favorite__content">
         {favorite &&
           favorite.map((movie) => {
-            return <Movie key={movie.id} movie={movie} type={"favorite"} />;
+            return <MovieCard key={movie.id} movie={movie} type={"favorite"} />;
           })}
       </main>
     </section>

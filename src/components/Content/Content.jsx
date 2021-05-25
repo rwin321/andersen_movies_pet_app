@@ -1,24 +1,21 @@
-import React, { useState, Suspense } from "react";
+import React, { Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
-import Preloader from "../../assets/Preloader";
-import MoviesContainer from "./Movies/MoviesContainer";
+import Main from "./Movies/Main";
+import Favorite from "./Movies/Favorite";
+import History from "./Movies/History";
 import Logout from "./Logout";
+import Preloader from "../../assets/Preloader";
 import Signin from "./Signin";
 import Signup from "./Signup";
-import Search from "./Search";
-import Favorite from "./Favorite";
+import ShowParticles from "../../assets/Particles";
 
 const Content = () => {
-  // state with value which client searching
-  const [searchVal, setSearchVal] = useState("");
-
   return (
     <div className="content__wrapper">
-      <Suspense fallback={<Preloader />}>
+      <Suspense fallback={() => <Preloader />}>
         <Switch>
           <Route exact path="/">
-            <Search searchVal={searchVal} setSearchVal={setSearchVal} />
-            <MoviesContainer searchVal={searchVal} />
+            <Main />
           </Route>
           <Route path="/signin">
             <Signin />
@@ -29,9 +26,12 @@ const Content = () => {
           <Route path="/logout">
             <Logout />
           </Route>
-          <Route path="/history">history</Route>
+          <Route path="/history">
+            <History />
+          </Route>
           <Route path="/favorite">
             <Favorite />
+            <ShowParticles />
           </Route>
         </Switch>
       </Suspense>
