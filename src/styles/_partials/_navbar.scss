@@ -1,10 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
 .nav {
   height: 100%;
   max-height: 75px;
   display: grid;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 3fr 9fr;
   text-align: center;
   align-items: center;
+  font-family: "Roboto Condensed", sans-serif;
+  & a {
+    font-size: 1.3rem;
+  }
   &__logo {
     height: 100%;
     &-img {

@@ -2,7 +2,7 @@ import React from "react";
 import {
   addMovieToFavorite,
   removeMovieFormFavorite,
-} from "../../../redux/slices/moviesSlice";
+} from "../../redux/slices/moviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import { BsStarFill } from "react-icons/bs";

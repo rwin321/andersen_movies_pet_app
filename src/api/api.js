@@ -1,13 +1,20 @@
 import axios from "axios";
 
-const URL =
-  "https://api.themoviedb.org/3/trending/all/week?api_key=cd524ad267ee1be15d8602d5d5bdecad";
+const apiKEY = "daed49d6ec4e1bc804725db7c40854b7";
+const URL = "https://api.themoviedb.org/3/";
 
 const instance = axios.create({
   baseURL: URL,
 });
 
-// fetch movies from api
-export const getMovies = () => {
-  return instance.get().then((res) => res.data);
+export const getSearchMovies = (query) => {
+  return instance
+    .get(`search/movie?api_key=${apiKEY}&lang=en-US&query=${query}`)
+    .then((res) => res.data);
+};
+
+export const getLatestMovies = () => {
+  return instance
+    .get(`movie/popular?api_key=${apiKEY}&language=en-US&page=1`)
+    .then((res) => res.data);
 };

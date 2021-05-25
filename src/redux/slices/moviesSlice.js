@@ -1,11 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getMovies } from "../../api/api";
+import { getLatestMovies } from "../../api/api";
 
 // asyn thunk
-export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
-  const data = await getMovies();
-  return data.results;
-});
+export const getPopularMovies = createAsyncThunk(
+  "movies/popularMusic",
+  async () => {
+    try {
+      const data = await getLatestMovies();
+      return data.results;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
 
 export const addMovieToFavorite = createAsyncThunk(
   "movies/addMovieToFavorite",
@@ -21,21 +28,21 @@ export const removeMovieFormFavorite = createAsyncThunk(
 export const moviesSlice = createSlice({
   name: "movies",
   initialState: {
-    list: [],
+    popular: [],
     loading: [],
     favorite: [],
   },
   reducers: {},
   extraReducers: {
-    [fetchMovies.pending]: (state) => {
+    [getPopularMovies.pending]: (state) => {
       state.loading = true;
     },
-    [fetchMovies.fulfilled]: (state, { payload }) => {
-      state.list = payload;
+    [getPopularMovies.fulfilled]: (state, { payload }) => {
+      state.popular = payload;
       state.loading = false;
     },
-    [fetchMovies.rejected]: (state, { payload }) => {
-      state.list = payload;
+    [getPopularMovies.rejected]: (state, { payload }) => {
+      state.popular = payload;
       state.loading = false;
     },
     [addMovieToFavorite.fulfilled]: (state, { payload }) => {

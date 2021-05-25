@@ -1,15 +1,20 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import MovieControls from "./MovieControls";
+import movie_alt from "../imgs/movie_alt.jpg";
 
-const Movie = ({ movie, type }) => {
+const MovieCard = ({ movie, type }) => {
   return (
     <Card className="card">
       <Card.Body className="card__body">
         <Card.Img
           className="card__img"
           variant="top"
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+              : movie_alt
+          }
           alt="MovieCover"
         />
         <Card.Title className="title">
@@ -29,4 +34,4 @@ const Movie = ({ movie, type }) => {
   );
 };
 
-export default Movie;
+export default MovieCard;
