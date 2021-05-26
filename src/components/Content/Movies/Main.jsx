@@ -11,7 +11,6 @@ const Main = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.movies.loading);
   const popular = useSelector((state) => state.movies.popular);
-  console.log(popular);
 
   // importing and using reselect query for our state
   // const searched = searchSelector(state)(searchVal);
