@@ -37,7 +37,7 @@ export const pushHistory = createAsyncThunk(
 
 // movies reducer
 export const moviesSlice = createSlice({
-  name: "movies",
+  name: "moviesSlice",
   initialState: {
     popular: [],
     loading: false,

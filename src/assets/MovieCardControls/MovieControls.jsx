@@ -11,8 +11,8 @@ import { HiDotsHorizontal } from "react-icons/hi";
 
 const MovieControls = ({ type, movie }) => {
   const dispatch = useDispatch();
-  const isAuth = useSelector((state) => state.auth.isAuth);
-  const favoriteList = useSelector((state) => state.movies.favorite);
+  const isAuth = useSelector((state) => state.authSlice.isAuth);
+  const favoriteList = useSelector((state) => state.moviesSlice.favorite);
 
   let addedMovieToFavorite = favoriteList.find((o) => o.id === movie.id);
   const disabled = addedMovieToFavorite ? true : false;

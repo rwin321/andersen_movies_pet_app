@@ -3,7 +3,7 @@ import { getSearchMovies } from "../../api/api";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { addToHistory } from "../../redux/slices/moviesSlice";
+import { addToHistory } from "../../redux/slices/historySlice";
 
 const Search = ({ query, setQuery, setSearchData }) => {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ const Search = ({ query, setQuery, setSearchData }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
+    dispatch(addToHistory(query));
     getSearchMovies(query)
       .then((data) => {
         setSearchData(data.results);

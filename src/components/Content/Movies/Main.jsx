@@ -9,7 +9,7 @@ const Main = () => {
   const [searchData, setSearchData] = useState([]);
   const dispatch = useDispatch();
   // const loading = useSelector((state) => state.movies.loading);
-  const popular = useSelector((state) => state.movies.popular);
+  const popular = useSelector((state) => state.moviesSlice.popular);
 
   useEffect(() => {
     dispatch(getPopularMovies());

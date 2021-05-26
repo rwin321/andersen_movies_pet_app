@@ -1,21 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { addToHistory } from "../../../redux/slices/moviesSlice";
 
 const History = () => {
-  const dispatch = useDispatch();
+  const searchHistory = useSelector((state) => state.historySlice.historyArray);
   // const searchHistory = getSearchHistory(state);
   // const currentSearch = getCurrentSearch(state);
+  console.log(searchHistory);
 
   return (
     <div>
       History
-      {/* <ul>
-        {searchHistory &&
-          searchHistory.map((el, id) => {
-            return <li key={id}>{el}</li>;
+      <ul>
+        {searchHistory.length &&
+          searchHistory.reverse().map((el, id) => {
+            if (typeof el === "string" && id <= 20) {
+              return <li key={id}>{el}</li>;
+            }
           })}
-      </ul> */}
+      </ul>
     </div>
   );
 };

@@ -8,12 +8,12 @@ export const addToHistory = createAsyncThunk(
 export const historySlice = createSlice({
   name: "historySlice",
   initialState: {
-    historyArray: ["123"],
+    historyArray: [],
   },
   reducers: {},
   extraReducers: {
     [addToHistory.fulfilled]: (state, { payload }) => {
-      state.historyArray = state.historyArray.push(payload);
+      state.historyArray.push(payload);
     },
   },
 });
