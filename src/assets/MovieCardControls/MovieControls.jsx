@@ -27,9 +27,7 @@ const MovieControls = ({ type, movie }) => {
           {isAuth && (
             <Button
               style={{ marginLeft: "1.5rem" }}
-              onClick={() => {
-                dispatch(addMovieToFavorite(movie));
-              }}
+              onClick={() => dispatch(addMovieToFavorite(movie))}
               disabled={disabled}
             >
               <BsStarFill />

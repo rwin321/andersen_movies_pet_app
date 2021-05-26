@@ -3,30 +3,17 @@ import { getSearchMovies } from "../../api/api";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentSearch, setSearchHistory } from "../../redux/movies/moviesAction";
+import { addToHistory } from "../../redux/slices/moviesSlice";
 
 const Search = ({ query, setQuery, setSearchData }) => {
-
   const dispatch = useDispatch();
-  const store = useSelector(state => state.moviesReducer);
-  const {searchHistory,currentSearch} = store
-  const [value, setvalue] = useState('');
-
-  console.log('searchHistory',searchHistory);
-
-  if(currentSearch) {
-    setQuery(currentSearch);
-    dispatch(setCurrentSearch(''))
-  }
 
   const onChange = (e) => {
     setQuery(e.target.value);
-    setvalue(e.target.value)
   };
 
-  const onSubmit = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
-    dispatch(setSearchHistory(value))
     getSearchMovies(query)
       .then((data) => {
         setSearchData(data.results);
@@ -34,12 +21,8 @@ const Search = ({ query, setQuery, setSearchData }) => {
       .catch((e) => console.log(e));
   };
 
-  const onSearch = (e) => {
-
-  };
-
   return (
-    <form className="search" onSubmit={onSubmit}>
+    <form className="search">
       <Form.Group style={{ marginBottom: "1rem" }}>
         <Form.Label className="search__label">
           try to find some movies
@@ -55,7 +38,11 @@ const Search = ({ query, setQuery, setSearchData }) => {
           if you login you will get opportunity to save your favorite films
         </Form.Text>
         <Button
-          onClick={(e)=>onSubmit(e)}
+          onClick={(e) => handleClick(e)}
+          // onClick={(e) => {
+          //   e.preventDefault();
+          //   dispatch(addToHistory(query));
+          // }}
           className="search__btn"
           type="submit"
           variant="primary"
