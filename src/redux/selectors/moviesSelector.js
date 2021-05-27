@@ -1,6 +1,8 @@
 import { createSelector } from "reselect";
 
 const getMovies = (state) => state.movies.list;
+export const getSearchHistory = (state) => state.movies.searchHistory;
+export const getCurrentSearch = (state) => state.movies.currentSearch;
 
 export const searchSelector = createSelector(
   [getMovies],

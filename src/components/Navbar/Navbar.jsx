@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const auth = useSelector((state) => state.auth.isAuth);
+  const auth = useSelector((state) => state.authSlice.isAuth);
 
   return (
     <nav className="nav">

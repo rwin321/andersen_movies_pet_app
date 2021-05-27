@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Movies from "./Movies";
-import MovieCard from "../../../assets/MovieCardControls/MovieCard";
 import Search from "../Search";
 import { useSelector, useDispatch } from "react-redux";
 import { getPopularMovies } from "../../../redux/slices/moviesSlice";
@@ -9,12 +8,9 @@ const Main = () => {
   const [query, setQuery] = useState("");
   const [searchData, setSearchData] = useState([]);
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.movies.loading);
-  const popular = useSelector((state) => state.movies.popular);
-  console.log(popular);
+  // const loading = useSelector((state) => state.movies.loading);
+  const popular = useSelector((state) => state.moviesSlice.popular);
 
-  // importing and using reselect query for our state
-  // const searched = searchSelector(state)(searchVal);
   useEffect(() => {
     dispatch(getPopularMovies());
   }, [dispatch]);

@@ -11,7 +11,6 @@ const Logout = ({}) => {
 
   const handleExit = () => {
     setLoggedOut(true);
-    localStorage.clear();
     dispatch(setAuth(false));
   };
   const handleGoBack = () => {

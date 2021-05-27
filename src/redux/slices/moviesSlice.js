@@ -24,13 +24,25 @@ export const removeMovieFormFavorite = createAsyncThunk(
   async (movie) => movie
 );
 
+// add to history tab value
+export const addToHistory = createAsyncThunk(
+  "movies/addToHistory",
+  async (query) => query
+);
+
+export const pushHistory = createAsyncThunk(
+  "movies/pushHistory",
+  async (query) => query
+);
+
 // movies reducer
 export const moviesSlice = createSlice({
-  name: "movies",
+  name: "moviesSlice",
   initialState: {
     popular: [],
-    loading: [],
+    loading: false,
     favorite: [],
+    history: [],
   },
   reducers: {},
   extraReducers: {
@@ -52,6 +64,9 @@ export const moviesSlice = createSlice({
       state.favorite = state.favorite.filter(
         (movie) => movie.id !== payload.id
       );
+    },
+    [addToHistory.fulfilled]: (state, { payload }) => {
+      state.history.push(payload);
     },
   },
 });

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: "authSlice",
   initialState: {
     userList: [
       { login: "Admin", password: 123 },

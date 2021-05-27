@@ -10,7 +10,7 @@ const root = document.getElementById("root");
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename={process.env.PUBLIC_URL} >
       <PersistGate persistor={persistor}>
         <App />
       </PersistGate>

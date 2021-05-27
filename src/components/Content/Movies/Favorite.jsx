@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import MovieCard from "../../../assets/MovieCardControls/MovieCard";
 
 const Favorite = () => {
-  const favorite = useSelector((state) => state.movies.favorite);
+  const favorite = useSelector((state) => state.moviesSlice.favorite);
   useEffect(() => {}, [favorite]);
 
   return (
