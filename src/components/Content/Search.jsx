@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { getSearchMovies } from "../../api/api";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToHistory } from "../../redux/slices/historySlice";
 
 const Search = ({ query, setQuery, setSearchData }) => {
@@ -22,6 +22,8 @@ const Search = ({ query, setQuery, setSearchData }) => {
       .catch((e) => console.log(e));
   };
 
+  let disableSearch = query.trim() === "" ? true : false;
+
   return (
     <form className="search">
       <Form.Group style={{ marginBottom: "1rem" }}>
@@ -40,15 +42,12 @@ const Search = ({ query, setQuery, setSearchData }) => {
         </Form.Text>
         <Button
           onClick={(e) => handleClick(e)}
-          // onClick={(e) => {
-          //   e.preventDefault();
-          //   dispatch(addToHistory(query));
-          // }}
           className="search__btn"
           type="submit"
           variant="primary"
           size="lg"
           block
+          disabled={disableSearch}
         >
           search
         </Button>

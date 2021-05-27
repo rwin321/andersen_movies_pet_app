@@ -16,28 +16,28 @@ const Navbar = () => {
       <ul className="nav__menu">
         <div style={{ display: "flex", justifyContent: "space-around" }}>
           <li>
-            <NavLink to="/">Главная</NavLink>
+            <NavLink to="/">HOME</NavLink>
           </li>
           {!auth && (
             <>
               <li>
-                <NavLink to="/signin">Войти</NavLink>
+                <NavLink to="/signin">log in</NavLink>
               </li>
               <li>
-                <NavLink to="/signup">Зарегистрироваться </NavLink>
+                <NavLink to="/signup">register </NavLink>
               </li>
             </>
           )}
           {auth && (
             <>
               <li>
-                <NavLink to="/favorite">Избранное</NavLink>
+                <NavLink to="/favorite">FAVORITE</NavLink>
               </li>
               <li>
-                <NavLink to="/history">История</NavLink>
+                <NavLink to="/history">HISTORY</NavLink>
               </li>
               <li>
-                <NavLink to="/logout">Выход</NavLink>
+                <NavLink to="/logout">EXIT</NavLink>
               </li>
             </>
           )}

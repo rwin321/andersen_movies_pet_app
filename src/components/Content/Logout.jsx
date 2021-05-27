@@ -21,14 +21,14 @@ const Logout = ({}) => {
 
   return (
     <div className="logoutBlock">
-      <h1>Выйти из учетной записи?</h1>
+      <h1>Do you want to exit?</h1>
       <button
         className="btn waves-effect waves-light"
         type="submit"
         name="action"
         onClick={handleExit}
       >
-        ВЫЙТИ
+        EXIT
       </button>
       <button
         className="btn waves-effect waves-light"
@@ -36,7 +36,7 @@ const Logout = ({}) => {
         name="action"
         onClick={handleGoBack}
       >
-        НАЗАД
+        GO BACK
       </button>
     </div>
   );

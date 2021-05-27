@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap");
 
 .nav {
   height: 100%;
@@ -7,9 +7,9 @@
   grid-template-columns: 3fr 9fr;
   text-align: center;
   align-items: center;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Montserrat Subrayada", sans-serif;
   & a {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   &__logo {
     height: 100%;

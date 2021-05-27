@@ -66,7 +66,7 @@ export const moviesSlice = createSlice({
       );
     },
     [addToHistory.fulfilled]: (state, { payload }) => {
-      state.history.push(payload);
+      state.history.shift(payload);
     },
   },
 });
