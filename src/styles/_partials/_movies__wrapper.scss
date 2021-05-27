@@ -1,0 +1,70 @@
+.movies__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  justify-items: center;
+  margin: 0 auto;
+
+  .title {
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+    padding: 8px 0;
+  }
+
+  .DownTitle {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3px;
+    padding: 0 2px;
+    padding-bottom: 3px;
+  }
+}
+
+//card styles
+.card {
+  &__img {
+    border-radius: 10px;
+    width: 100%;
+    min-height: max-content;
+  }
+  &__body {
+    width: 100%;
+    height: 100%;
+    padding: 0.7rem;
+    background-color: rgba(0, 0, 0, 0.055);
+    &:hover {
+      background-color: rgba(255, 160, 122, 0.301);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+  }
+  &__title {
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    color: lightcoral;
+  }
+  &__text {
+    padding: 0.5rem;
+  }
+  &__rating {
+    position: absolute;
+    bottom: 0.7rem;
+    right: 0.7rem;
+    font-size: 1.5rem;
+    color: orange;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+}
+// movie controls
+.button-card {
+  font-size: 1.5rem;
+  filter: blur(1px) grayscale(1);
+  &:hover {
+    transform: scale(1.1);
+    filter: blur(0px) grayscale(0);
+  }
+}
