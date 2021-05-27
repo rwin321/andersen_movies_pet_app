@@ -4,9 +4,6 @@ import ResultQuery from "../../../assets/ResultQuery";
 
 const History = () => {
   const searchHistory = useSelector((state) => state.historySlice.historyArray);
-  // const searchHistory = getSearchHistory(state);
-  // const currentSearch = getCurrentSearch(state);
-  console.log(searchHistory);
 
   const searchHistoryQueries =
     searchHistory.length <= 10 ? searchHistory.length : `more then 10 `;

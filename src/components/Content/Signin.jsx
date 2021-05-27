@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router";
-// import "../styles/ContentView.css";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../redux/slices/authSlice";
 import Alert from "react-bootstrap/Alert";
