@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/andersen_movies_pet_app/static/css/main.f7221db1.chunk.css",
+    "main.js": "/andersen_movies_pet_app/static/js/main.d75a06b7.chunk.js",
+    "main.js.map": "/andersen_movies_pet_app/static/js/main.d75a06b7.chunk.js.map",
+    "runtime-main.js": "/andersen_movies_pet_app/static/js/runtime-main.279a7fc3.js",
+    "runtime-main.js.map": "/andersen_movies_pet_app/static/js/runtime-main.279a7fc3.js.map",
+    "static/js/2.e93412e0.chunk.js": "/andersen_movies_pet_app/static/js/2.e93412e0.chunk.js",
+    "static/js/2.e93412e0.chunk.js.map": "/andersen_movies_pet_app/static/js/2.e93412e0.chunk.js.map",
+    "index.html": "/andersen_movies_pet_app/index.html",
+    "static/css/main.f7221db1.chunk.css.map": "/andersen_movies_pet_app/static/css/main.f7221db1.chunk.css.map",
+    "static/js/2.e93412e0.chunk.js.LICENSE.txt": "/andersen_movies_pet_app/static/js/2.e93412e0.chunk.js.LICENSE.txt",
+    "static/media/movie_alt.87746eef.jpg": "/andersen_movies_pet_app/static/media/movie_alt.87746eef.jpg",
+    "static/media/preloader.ec92df43.svg": "/andersen_movies_pet_app/static/media/preloader.ec92df43.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.279a7fc3.js",
+    "static/js/2.e93412e0.chunk.js",
+    "static/css/main.f7221db1.chunk.css",
+    "static/js/main.d75a06b7.chunk.js"
+  ]
+}
