@@ -17,7 +17,7 @@ const Content = () => {
           <Route exact path="/">
             <Main />
           </Route>
-          <Route path="/signin">
+          <Route path="/signinй ">
             <Signin />
           </Route>
           <Route path="/signup">
