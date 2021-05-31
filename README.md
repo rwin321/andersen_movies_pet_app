@@ -1,4 +1,4 @@
-# Movies app
+# Movies application where you can find newset movies, add them to favorite and find last queries of films that you were trying to find.
 
 ## Vladimir & Ervin A.
 
