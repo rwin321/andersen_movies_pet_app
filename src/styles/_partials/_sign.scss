@@ -1,0 +1,46 @@
+.signin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 50%;
+  border: 1px solid black;
+  text-align: center;
+  padding: 15px;
+}
+
+.signin input {
+  text-align: center;
+}
+
+.logoutBlock {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  & h1 {
+    font-size: 1.3rem;
+  }
+  & button {
+    margin: 0 0.7rem;
+  }
+}
+
+.alert {
+  opacity: 0;
+  min-height: 1.5rem;
+  animation: fadeOut 3.4s ease-in-out;
+  font-family: "Arial", serif;
+  margin-top: 1rem;
+  color: red;
+  font-size: 1.5rem;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    font-size: 0.3rem;
+    opacity: 0;
+  }
+}

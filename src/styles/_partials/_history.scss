@@ -1,0 +1,13 @@
+.history {
+  &__title {
+    box-shadow: 5px 2px 2px lightsalmon;
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    padding: 0.3rem;
+  }
+
+  .resultQuery {
+    cursor: pointer;
+  }
+}
