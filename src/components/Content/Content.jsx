@@ -4,10 +4,10 @@ import Main from "./Movies/Main";
 import Favorite from "./Movies/Favorite";
 import History from "./Movies/History";
 import Logout from "./Logout";
-import Preloader from "../../assets/Preloader";
+import Preloader from "../../common/Preloader/Preloader";
 import Signin from "./Signin";
 import Signup from "./Signup";
-import ShowParticles from "../../assets/Particles";
+import ShowParticles from "../../common/Particles";
 
 const Content = () => {
   return (
@@ -17,7 +17,7 @@ const Content = () => {
           <Route exact path="/">
             <Main />
           </Route>
-          <Route path="/signinй ">
+          <Route path="/signin">
             <Signin />
           </Route>
           <Route path="/signup">

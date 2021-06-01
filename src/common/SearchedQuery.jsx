@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
 
-const ResultQuery = ({ text }) => {
+const SearchedQuery = ({ text }) => {
   return (
     <Card className="resultQuery">
       <Card.Body className="resultQuery__body">
@@ -10,4 +10,4 @@ const ResultQuery = ({ text }) => {
   );
 };
 
-export default ResultQuery;
+export default SearchedQuery;

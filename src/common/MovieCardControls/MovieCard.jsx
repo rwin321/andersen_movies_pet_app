@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import MovieControls from "./MovieControls";
-import movie_alt from "../imgs/movie_alt.jpg";
+import movie_alt from "../../assets/imgs/movie_alt.jpg";
 
 const MovieCard = ({ movie, type }) => {
   return (
@@ -27,8 +27,9 @@ const MovieCard = ({ movie, type }) => {
         <Card.Subtitle className="DownTitle">
           {movie.media_type === "tv" ? "TV Series" : "Movie"}
         </Card.Subtitle>
-
-        <MovieControls type={type} movie={movie} />
+        <section className="card__btnControlls">
+          <MovieControls type={type} movie={movie} />
+        </section>
       </Card.Body>
     </Card>
   );

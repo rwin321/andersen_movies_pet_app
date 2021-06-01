@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import MovieCard from "../../../assets/MovieCardControls/MovieCard";
+import MovieCard from "../../../common/MovieCardControls/MovieCard";
 
 const Favorite = () => {
   const favorite = useSelector((state) => state.moviesSlice.favorite);

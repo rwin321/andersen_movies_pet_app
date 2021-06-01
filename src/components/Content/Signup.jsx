@@ -64,7 +64,6 @@ const Signup = () => {
           handleChange,
           handleBlur,
           isValid,
-          handleSubmite,
           dirty,
         }) => (
           <div className="validate">

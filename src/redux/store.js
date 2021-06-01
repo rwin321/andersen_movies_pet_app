@@ -25,6 +25,12 @@ export const store = configureStore({
   middleware: getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      immutableCheck: {
+        ignoredPaths: ["../components/Content/Movies/Main.jsx"],
+      },
+      serializableCheck: {
+        ignoredPaths: ["../components/Content/Movies/Main.jsx"],
+      },
     },
   }),
 });

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router";
-// import "../styles/ContentView.css";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../redux/slices/authSlice";
 import Alert from "react-bootstrap/Alert";
@@ -23,6 +22,7 @@ const Signin = () => {
   useEffect(() => {
     const login = localStorage.getItem("data-login");
     const password = localStorage.getItem("data-password");
+    console.log(login, password);
     setDb({ login, password });
   }, []);
 
@@ -61,16 +61,7 @@ const Signin = () => {
         }}
         validationSchema={validationsSchema}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          isValid,
-          handleSubmite,
-          dirty,
-        }) => (
+        {({ values, errors, touched, handleChange, handleBlur }) => (
           <div className="validate">
             <p>
               <label htmlFor={"name"}>Name</label>

@@ -14,6 +14,9 @@ export const historySlice = createSlice({
   extraReducers: {
     [addToHistory.fulfilled]: (state, { payload }) => {
       state.historyArray.push(payload);
+      if (state.historyArray.length > 20) {
+        state.historyArray.unshift();
+      }
     },
   },
 });

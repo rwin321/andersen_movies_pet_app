@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { useDispatch } from "react-redux";
 import { addToHistory } from "../../redux/slices/historySlice";
 
-const Search = ({ query, setQuery, setSearchData }) => {
+const SearchForm = ({ query, setQuery, setSearchData }) => {
   const dispatch = useDispatch();
 
   const onChange = (e) => {
@@ -38,7 +38,7 @@ const Search = ({ query, setQuery, setSearchData }) => {
           onChange={onChange}
         />
         <Form.Text className="text-muted">
-          if you login you will get opportunity to save your favorite films
+          if you login, you will get opportunity to save your favorite films
         </Form.Text>
         <Button
           onClick={(e) => handleClick(e)}
@@ -56,4 +56,4 @@ const Search = ({ query, setQuery, setSearchData }) => {
   );
 };
 
-export default Search;
+export default SearchForm;

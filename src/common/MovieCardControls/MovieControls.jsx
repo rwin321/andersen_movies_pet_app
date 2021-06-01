@@ -1,7 +1,7 @@
 import React from "react";
 import {
   addMovieToFavorite,
-  removeMovieFormFavorite,
+  removeMovieFromFavorite,
 } from "../../redux/slices/moviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
@@ -15,7 +15,6 @@ const MovieControls = ({ type, movie }) => {
   const favoriteList = useSelector((state) => state.moviesSlice.favorite);
 
   let addedMovieToFavorite = favoriteList.find((o) => o.id === movie.id);
-  const disabled = addedMovieToFavorite ? true : false;
 
   return (
     <div className="inner-card-controls">
@@ -24,13 +23,23 @@ const MovieControls = ({ type, movie }) => {
           <Button className="button-card">
             <HiDotsHorizontal />
           </Button>
-          {isAuth && (
+          {isAuth && !addedMovieToFavorite ? (
             <Button
-              style={{ marginLeft: "1.5rem" }}
-              onClick={() => dispatch(addMovieToFavorite(movie))}
-              disabled={disabled}
+              style={{ marginLeft: ".5rem" }}
+              onClick={() => {
+                dispatch(addMovieToFavorite(movie));
+              }}
             >
               <BsStarFill />
+            </Button>
+          ) : (
+            <Button
+              style={{ marginLeft: ".5rem", bottom: 0 }}
+              onClick={() => {
+                dispatch(removeMovieFromFavorite(movie));
+              }}
+            >
+              <RiDeleteBin6Line />
             </Button>
           )}
         </>
@@ -41,10 +50,8 @@ const MovieControls = ({ type, movie }) => {
             <HiDotsHorizontal />
           </Button>
           <Button
-            style={{ marginLeft: "1.5rem" }}
-            onClick={() => {
-              dispatch(removeMovieFormFavorite(movie));
-            }}
+            style={{ marginLeft: ".5rem", bottom: 0 }}
+            onClick={() => dispatch(removeMovieFromFavorite(movie))}
           >
             <RiDeleteBin6Line />
           </Button>

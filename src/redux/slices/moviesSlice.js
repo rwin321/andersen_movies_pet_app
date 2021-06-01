@@ -19,20 +19,9 @@ export const addMovieToFavorite = createAsyncThunk(
   async (movie) => movie
 );
 
-export const removeMovieFormFavorite = createAsyncThunk(
+export const removeMovieFromFavorite = createAsyncThunk(
   "movies/removeMovieFromFavorite",
   async (movie) => movie
-);
-
-// add to history tab value
-export const addToHistory = createAsyncThunk(
-  "movies/addToHistory",
-  async (query) => query
-);
-
-export const pushHistory = createAsyncThunk(
-  "movies/pushHistory",
-  async (query) => query
 );
 
 // movies reducer
@@ -58,15 +47,16 @@ export const moviesSlice = createSlice({
       state.loading = false;
     },
     [addMovieToFavorite.fulfilled]: (state, { payload }) => {
-      state.favorite.push(payload);
+      if (typeof payload !== null) {
+        state.favorite.push(payload);
+      } else {
+        console.log(`${payload} is not correct`);
+      }
     },
-    [removeMovieFormFavorite.fulfilled]: (state, { payload }) => {
+    [removeMovieFromFavorite.fulfilled]: (state, { payload }) => {
       state.favorite = state.favorite.filter(
         (movie) => movie.id !== payload.id
       );
-    },
-    [addToHistory.fulfilled]: (state, { payload }) => {
-      state.history.shift(payload);
     },
   },
 });

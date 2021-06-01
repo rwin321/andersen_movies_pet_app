@@ -1,4 +1,4 @@
-import preloader from "./imgs/preloader.svg";
+import preloader from "./preloader.svg";
 import React from "react";
 
 const Preloader = () => {
