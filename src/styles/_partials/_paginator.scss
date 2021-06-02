@@ -1,0 +1,22 @@
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__pages {
+    padding: 0.3rem;
+    text-align: center;
+  }
+  &__item {
+    max-width: 30px;
+    background-color: lightsalmon;
+    border: 1px solid #000;
+    margin: 0.2rem;
+    &:hover {
+      transition: 0.3s ease-in-out;
+      background-color: lightseagreen;
+    }
+  }
+  &__btn {
+    background-color: lightsalmon;
+  }
+}

@@ -13,8 +13,8 @@ export const getSearchMovies = (query) => {
     .then((res) => res.data);
 };
 
-export const getLatestMovies = () => {
+export const getLatestMovies = (page = 1) => {
   return instance
-    .get(`movie/popular?api_key=${apiKEY}&language=en-US&page=1`)
+    .get(`movie/popular?api_key=${apiKEY}&language=en-US&page=${page}`)
     .then((res) => res.data);
 };

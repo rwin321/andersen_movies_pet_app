@@ -2,7 +2,7 @@
 
 .movies__wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
   grid-gap: 20px;
   align-items: stretch;
   justify-items: center;
@@ -10,7 +10,7 @@
 
   @media (max-width: 1200px) {
     & {
-      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
   }
   .title {

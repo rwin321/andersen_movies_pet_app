@@ -12,11 +12,17 @@
 
 ##### Form validation (Formik)
 
+##### details page
+
 ### Ervin:
+
+##### architecture of the app
 
 ##### Redux-toolkit + redux-persist
 
 ##### Favorite/History + styles
+
+##### Pagination
 
 ## Сайт состоит из
 
