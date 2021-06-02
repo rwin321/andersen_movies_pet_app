@@ -4,10 +4,10 @@ import { getLatestMovies } from "../../api/api";
 // asyn thunk
 export const getPopularMovies = createAsyncThunk(
   "movies/popularMusic",
-  async () => {
+  async (page) => {
     try {
-      const data = await getLatestMovies();
-      return data.results;
+      const data = await getLatestMovies(page);
+      return { data, page };
     } catch (e) {
       console.log(e);
     }
@@ -29,6 +29,9 @@ export const moviesSlice = createSlice({
   name: "moviesSlice",
   initialState: {
     popular: [],
+    popularTotalMovies: 0,
+    popularTotalPages: 0,
+    popularCurrentPage: 0,
     loading: false,
     favorite: [],
     history: [],
@@ -39,11 +42,14 @@ export const moviesSlice = createSlice({
       state.loading = true;
     },
     [getPopularMovies.fulfilled]: (state, { payload }) => {
-      state.popular = payload;
+      state.popular = payload.data.results;
+      state.popularTotalPages = payload.data.total_pages;
+      state.popularTotalMovies = payload.data.total_results;
+      state.popularCurrentPage = payload.page;
       state.loading = false;
     },
     [getPopularMovies.rejected]: (state, { payload }) => {
-      state.popular = payload;
+      state.popular = payload.data.results;
       state.loading = false;
     },
     [addMovieToFavorite.fulfilled]: (state, { payload }) => {
