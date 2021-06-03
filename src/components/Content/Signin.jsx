@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../redux/slices/authSlice";
-import Alert from "react-bootstrap/Alert";
 import { Formik } from "formik";
 import * as yup from "yup";
+import AlertField from "../../common/AlertField";
 
 const Signin = () => {
   const history = useHistory();
@@ -102,7 +102,11 @@ const Signin = () => {
             >
               login
             </button>
-            {alert && <Alert className="alert">Incorrect login or email</Alert>}
+            {alert && (
+              <AlertField className="alert">
+                Incorrect login or email
+              </AlertField>
+            )}
           </div>
         )}
       </Formik>

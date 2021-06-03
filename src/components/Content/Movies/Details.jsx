@@ -5,14 +5,14 @@ import movie_alt from "../../../assets/imgs/movie_alt.jpg";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
-function Details(props) {
+const Details = () => {
   const history = useHistory();
   const movie = useSelector(
     (state) => state.currentSearchValueSlice.currentMovie[0]
   );
 
   const handleClick = () => {
-    history.push("/");
+    history.goBack();
   };
 
   return (
@@ -56,6 +56,6 @@ function Details(props) {
       </Card.Body>
     </Card>
   );
-}
+};
 
 export default Details;

@@ -21,7 +21,7 @@ const MovieControls = ({ type, movie }) => {
 
   let addedMovieToFavorite = favoriteList.find((o) => o.id === movie.id);
 
-  const handleClick = () => {
+  const handleClick = (controllsType) => {
     dispatch(setCurrentMovie(movie));
     history.push("/details");
   };
@@ -37,10 +37,6 @@ const MovieControls = ({ type, movie }) => {
             <Button
               style={{ marginLeft: "1.5rem" }}
               onClick={() => dispatch(addMovieToFavorite(movie))}
-              style={{ marginLeft: ".5rem" }}
-              onClick={() => {
-                dispatch(addMovieToFavorite(movie));
-              }}
             >
               <BsStarFill />
             </Button>
@@ -60,7 +56,7 @@ const MovieControls = ({ type, movie }) => {
       )}
       {type === "favorite" && (
         <>
-          <Button className="button-card">
+          <Button onClick={handleClick} className="button-card">
             <HiDotsHorizontal />
           </Button>
           <Button

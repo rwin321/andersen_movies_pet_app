@@ -7,9 +7,11 @@ const instance = axios.create({
   baseURL: URL,
 });
 
-export const getSearchMovies = (query) => {
+export const getSearchMovies = (query, page = 1) => {
   return instance
-    .get(`search/movie?api_key=${apiKEY}&lang=en-US&query=${query}`)
+    .get(
+      `search/movie?api_key=${apiKEY}&lang=en-US&query=${query}&page=${page}`
+    )
     .then((res) => res.data);
 };
 

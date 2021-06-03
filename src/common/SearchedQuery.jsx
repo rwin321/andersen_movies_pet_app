@@ -9,7 +9,7 @@ const SearchedQuery = ({ text }) => {
 
   const handleClick = (e) => {
     dispatch(setCurrentSearch(e.target.textContent));
-    history.push("/");
+    history.push("/historySearch");
   };
 
   return (

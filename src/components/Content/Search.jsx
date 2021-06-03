@@ -6,7 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToHistory } from "../../redux/slices/historySlice";
 import { setCurrentSearch } from "../../redux/slices/currentSearchValueSlice";
 
-const Search = ({ query, setQuery, setSearchData }) => {
+const Search = ({
+  query,
+  setQuery,
+  setSearchData,
+  setTotalSearchPages,
+  setTotalSearchMovies,
+}) => {
   const dispatch = useDispatch();
 
   const currentSearch = useSelector(
@@ -25,6 +31,8 @@ const Search = ({ query, setQuery, setSearchData }) => {
     getSearchMovies(value)
       .then((data) => {
         setSearchData(data.results);
+        setTotalSearchPages(data.total_pages);
+        setTotalSearchMovies(data.total_results);
       })
       .catch((e) => console.log(e));
   };

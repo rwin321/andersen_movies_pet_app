@@ -9,7 +9,18 @@ import PaginationComponent from "../../../common/PaginationComponent";
 const Main = () => {
   const [query, setQuery] = useState("");
   const [searchData, setSearchData] = useState([]);
-  let [currentPage, setCurrentPage] = useState(1);
+
+  const [totalSearchPages, setTotalSearchPages] = useState(0);
+  const [totalSearchMovies, setTotalSearchMovies] = useState(0);
+
+  let [searchCurrentPage] = useState(0);
+  let [popularCurrentPage] = useState(1);
+
+  let currentPageValue = searchData.legnth
+    ? searchCurrentPage
+    : popularCurrentPage;
+
+  let [currentPage, setCurrentPage] = useState(currentPageValue);
 
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.moviesSlice.loading);
@@ -41,7 +52,7 @@ const Main = () => {
   const handlePreviousClick = (e) => {
     e.preventDefault();
     if (currentPage === 1) return false;
-    setCurrentPage(currentPage--);
+    setCurrentPage(--currentPage);
     dispatch(getPopularMovies(currentPage));
   };
 
@@ -54,10 +65,17 @@ const Main = () => {
         searchData={searchData}
         setQuery={setQuery}
         setSearchData={setSearchData}
+        setTotalSearchPages={setTotalSearchPages}
+        setTotalSearchMovies={setTotalSearchMovies}
+        searchCurrentPage={searchCurrentPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
       />
       <PaginationComponent
-        totalItems={totalMoviesOfPopular}
-        totalPages={totalPagesOfPopular}
+        totalItems={
+          searchData.length ? totalSearchMovies : totalMoviesOfPopular
+        }
+        totalPages={searchData.length ? totalSearchPages : totalPagesOfPopular}
         handleOnPageClick={handleOnPageClick}
         next={handleNextClick}
         prev={handlePreviousClick}

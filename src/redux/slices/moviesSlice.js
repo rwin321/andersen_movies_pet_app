@@ -23,17 +23,6 @@ export const removeMovieFromFavorite = createAsyncThunk(
   async (movie) => movie
 );
 
-// add to history tab value
-export const addToHistory = createAsyncThunk(
-  "movies/addToHistory",
-  async (query) => query
-);
-
-export const pushHistory = createAsyncThunk(
-  "movies/pushHistory",
-  async (query) => query
-);
-
 // movies reducer
 export const moviesSlice = createSlice({
   name: "moviesSlice",
@@ -44,7 +33,6 @@ export const moviesSlice = createSlice({
     popularCurrentPage: 0,
     loading: false,
     favorite: [],
-    history: [],
   },
   reducers: {},
   extraReducers: {

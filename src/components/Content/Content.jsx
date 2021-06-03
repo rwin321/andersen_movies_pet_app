@@ -9,6 +9,7 @@ import Signin from "./Signin";
 import Signup from "./Signup";
 import ShowParticles from "../../common/Particles";
 import Details from "./Movies/Details";
+import HistorySearch from "./Movies/HistorySearch";
 
 const Content = () => {
   return (
@@ -29,6 +30,9 @@ const Content = () => {
           </Route>
           <Route path="/history">
             <History />
+          </Route>
+          <Route exact path="/historySearch">
+            <HistorySearch />
           </Route>
           <Route path="/favorite">
             <Favorite />

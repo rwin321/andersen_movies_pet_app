@@ -4,11 +4,14 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { addUserToUserList } from "../../redux/slices/authSlice";
+import AlertField from "../../common/AlertField";
 
 const Signup = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const userList = useSelector((state) => state.authSlice.userList);
 
+  const [alert, setAlert] = useState(false);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,19 +35,35 @@ const Signup = () => {
     setPassword(e.target.value);
   };
 
-  const hangleSubmit = (e) => {
+  const compareData = (loginFromInput) => {
+    let loggedIn = false;
+    userList.map((user) => {
+      if (user.login === loginFromInput) {
+        loggedIn = true;
+      }
+    });
+    return loggedIn;
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       login,
       password,
     };
+    const hasAlreadyLoggedIn = compareData(data.login);
+
     if (data.login && data.password) {
-      localStorage.setItem("data-login", data.login);
-      localStorage.setItem("data-password", data.password);
-      dispatch(addUserToUserList(data));
-      history.push("/signin");
-    } else {
-      alert("Error data");
+      if (hasAlreadyLoggedIn) {
+        setAlert(true);
+        return null;
+      } else {
+        setAlert(false);
+        localStorage.setItem("data-login", data.login);
+        localStorage.setItem("data-password", data.password);
+        dispatch(addUserToUserList(data));
+        history.push("/signin");
+      }
     }
   };
 
@@ -57,9 +76,9 @@ const Signup = () => {
           email: "",
         }}
         validateOnBlur
-        onSubmit={(values) => {
-          hangleSubmit();
-        }}
+        // onSubmit={(values) => {
+        //   handleSubmit();
+        // }}
         validationSchema={validationsSchema}
       >
         {({
@@ -119,14 +138,16 @@ const Signup = () => {
             {touched.email && errors.email && <p>{errors.email}</p>}
             <button
               disabled={!isValid && !dirty}
-              // onClick={handleSubmite}
               type="submit"
               name="action"
-              onClick={(e) => hangleSubmit(e)}
+              onClick={(e) => handleSubmit(e)}
               style={{ padding: "1rem" }}
             >
               Register
             </button>
+            {alert && (
+              <AlertField>User with this name has already logged in</AlertField>
+            )}
           </div>
         )}
       </Formik>
