@@ -1,7 +1,6 @@
 # Movies application where you can find newset movies, add them to favorite and find last queries of films that you were trying to find.
 
-## Vladimir & Ervin A.
-
+## Ervin A. & Vladimir 
 #### Stack
 
 ###### React, Redux, Redux-toolkit, redux-thunk, React Router, react-bootstrap.
